@@ -1,5 +1,4 @@
 # DerivedFileManager
- Derived FileManager Example
 
 ## Overview
 `DerivedFileManager` is an example project showcasing how to extend the ABC FileManager in Clarion. It includes two Clarion files: `ModFM.INC` (a class definition) and `ModFM.CLW` (source code), which derive from the ABC FileManager. This extension adds several methods to enhance the functionality of the original FileManager, making it more versatile, especially for SQL file management.
@@ -23,8 +22,17 @@ To integrate `DerivedFileManager` into your Clarion projects, follow these steps
 This process ensures that your application uses the enhanced file management capabilities provided by `DerivedFileManager`.
 
 ## Usage
-After integrating `DerivedFileManager` into your project, you can utilize the new methods in your file management routines. This extension is particularly useful for applications that work with SQL files and require detailed debugging and tracing capabilities.
 
-## Contributing
-Contributions to `DerivedFileManager` are welcome. If you have improvements or bug fixes, please open a pull request or issue in this repository.
+### Turning Tracing On and Off
+To control tracing for a specific file manager instance, you can use the `DBTraceOn` and `DBTraceOff` methods. Here's how you might do it:
+
+```clarion
+! To turn on tracing for a table
+ACCESS:TableName.DBTraceOn()
+
+! To turn off tracing for the same table
+ACCESS:TableName.DBTraceOff()
+
+! Sending a custom trace message
+ACCESS:TableName.TRACE('Your custom message here')
 
