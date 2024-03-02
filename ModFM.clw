@@ -52,8 +52,10 @@ FirstFieldName          CSTRING(257)
 ModFM.DBTraceOn     PROCEDURE()
 !------------------------------------------------------------------------------
     CODE  
-    SYSTEM{PROP:DriverTracing} = '1'
-    SELF.File{PROP:TraceFile}  = 'DEBUG:'   ! sends the trace info to debugview
+    !Removed first two lines, they were copied from the original post by MarkR
+    !See https://clarionhub.com/t/re-driver-trace-logging-to-debugview-using-prop-profile-debug/7020
+    ! SYSTEM{PROP:DriverTracing} = '1'
+    ! SELF.File{PROP:TraceFile}  = 'DEBUG:'   ! sends the trace info to debugview
     SELF.File{PROP:Details}    = 1 
     SELF.File{PROP:Profile}    = 'DEBUG:'   ! sends the trace info to debugview
     SELF.File{PROP:LogSQL}     = 1
@@ -61,8 +63,10 @@ ModFM.DBTraceOn     PROCEDURE()
 ModFM.DBTraceOff    PROCEDURE()
 !------------------------------------------------------------------------------
     CODE  
-    SYSTEM{PROP:DriverTracing} = ''
-    SELF.File{PROP:TraceFile}  = ''
+    ! Removed first two lines, they were copied from the original post by MarkR
+    ! See https://clarionhub.com/t/re-driver-trace-logging-to-debugview-using-prop-profile-debug/7020
+    ! SYSTEM{PROP:DriverTracing} = ''
+    ! SELF.File{PROP:TraceFile}  = ''
     SELF.File{PROP:Details}    = 0 
     SELF.File{PROP:Profile}    = '' 
     SELF.File{PROP:LogSQL}     = 0
