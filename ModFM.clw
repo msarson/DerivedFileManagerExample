@@ -60,7 +60,7 @@ ModFM.DBTraceOn     PROCEDURE()
     ! SELF.File{PROP:TraceFile}  = 'DEBUG:'   ! sends the trace info to debugview
     SELF.File{PROP:Details}    = 1 
     SELF.File{PROP:Profile}    = 'DEBUG:'   ! sends the trace info to debugview
-    IF SELFISSqlFile() THEN
+    IF SELF.ISSqlFile() THEN
         SELF.File{PROP:LogSQL}     = 1
     END
 
