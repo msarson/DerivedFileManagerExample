@@ -50,7 +50,7 @@ ModFM.ISSqlFile     PROCEDURE()
 ! CSTRING(21): The extracted prefix from the first field's label of the file.
 !
 ! Example Usage:
-! PREFIX_VAR = SOME_OBJECT.GetFilePrefix()
+! PREFIX_VAR = Access:SomeFile.GetFilePrefix()
 !
 ! Notes:
 ! - The file's first field label is expected to contain a prefix followed by either ':' or '.' as a separator.
