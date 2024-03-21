@@ -19,7 +19,9 @@ ModFM.Init          PROCEDURE(File File, ErrorClass E)
     !Below Can Be Removed
     !Set alias so file will always user the Prefix in SQL queries
     !This is simplified, you may need to handle SQL Keywords
-    Self.File{prop:alias} = Self.GetFilePrefix()
+    IF SELF.ISSqlFile() THEN
+        Self.File{prop:alias} = Self.GetFilePrefix()
+    END
     
 
 ModFM.ISSqlFile     PROCEDURE()
@@ -58,7 +60,9 @@ ModFM.DBTraceOn     PROCEDURE()
     ! SELF.File{PROP:TraceFile}  = 'DEBUG:'   ! sends the trace info to debugview
     SELF.File{PROP:Details}    = 1 
     SELF.File{PROP:Profile}    = 'DEBUG:'   ! sends the trace info to debugview
-    SELF.File{PROP:LogSQL}     = 1
+    IF SELFISSqlFile() THEN
+        SELF.File{PROP:LogSQL}     = 1
+    END
 
 ModFM.DBTraceOff    PROCEDURE()
 !------------------------------------------------------------------------------
@@ -69,7 +73,9 @@ ModFM.DBTraceOff    PROCEDURE()
     ! SELF.File{PROP:TraceFile}  = ''
     SELF.File{PROP:Details}    = 0 
     SELF.File{PROP:Profile}    = '' 
-    SELF.File{PROP:LogSQL}     = 0
+    IF SELF.ISSqlFile() THEN
+        SELF.File{PROP:LogSQL}     = 0
+    END
 
 ModFM.TRACE         PROCEDURE(STRING Message)  
 !------------------------------------------------------------------------------
